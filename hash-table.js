@@ -103,9 +103,15 @@ class HashTable {
     let previousNode;
     let currNode = this.structStore[hashResult];
     while (currNode) {
+      // a node has two properties:
+      /**
+       * {
+       *  value: {key: something, value: something},
+       *  next: Node || null
+       * }
+       */
       const currNodeKey = currNode.value.key
-      const currNodeValue = currNode.value.value;
-      if (currNodeKey === key && currNodeValue === value) {
+      if (currNodeKey === key) {
         if (previousNode) {
           previousNode.next = currNode.next;
         } else {
